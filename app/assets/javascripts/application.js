@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery_ujs
-//= require turbolinks
 //= require handlebars.runtime
 //= require_tree ./models
 //= require_tree ./collections
@@ -24,5 +23,5 @@
 var App = App || {}
 
 $(function() {
-  Backbone.history.start();
+  Backbone.history.start({ pushState: true });
 });

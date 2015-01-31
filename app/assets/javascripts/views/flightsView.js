@@ -4,7 +4,9 @@ App.FlightsView = Backbone.View.extend ({
 
   events: {
     'click button': 'renderFlightCreateForm',
-    'submit form': 'createFlight'    
+    'submit form': 'createFlight',
+    'keyup .origin': 'searchFlights'
+    // 'keyup .destination': 'searchFlights'    
   },
 
   initialize: function() {
@@ -13,6 +15,7 @@ App.FlightsView = Backbone.View.extend ({
   },
 
   renderCollection: function (data) {
+    console.log(data)
     this.$el.find("tbody").html("");
 
     data.each(function(flight){
@@ -50,6 +53,18 @@ App.FlightsView = Backbone.View.extend ({
     var flightView = new App.FlightView({ model: flight })
     this.$el.append(flightView.render().el);
   },
+
+  searchFlights: function() {
+    var searchOrigin = this.$el.find("input.origin").val();
+    var searchDestination = this.$el.find("input.destination").val();
+    
+    if (searchOrigin === "") {
+      this.renderCollection(this.collection);
+    } else {
+      this.renderCollection(this.collection.filterBySearch(searchOrigin));   
+    }
+    
+  }
 
 
 });

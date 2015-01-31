@@ -4,7 +4,13 @@ App.PlanesView = Backbone.View.extend ({
 
   events: {
     'click button': 'renderPlaneCreateForm',
-    'submit form': 'createPlane'    
+    'submit form': 'createPlane',
+    'click a': 'goNavigate'    
+  },
+
+  goNavigate: function(event) {
+    event.preventDefault();
+    console.log($(event.currentTarget));
   },
 
   initialize: function() {
