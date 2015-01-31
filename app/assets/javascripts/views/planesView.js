@@ -2,6 +2,10 @@ var App = App || {};
 
 App.PlanesView = Backbone.View.extend ({
 
+  events: {
+    'click button': 'renderPlaneCreateForm'
+  },
+
   renderCollection: function (data) {
     this.$el.find("ul").html("");
 
@@ -13,9 +17,13 @@ App.PlanesView = Backbone.View.extend ({
 
 
   render: function () {
-    this.$el.html(JST['app']());
+    this.$el.html(JST['planes/app']());
     this.renderCollection(this.collection)
     return this;
   },
+
+  renderPlaneCreateForm: function() {
+    this.$el.html(JST['planes/create-plane-form']());
+  }
 
 });
