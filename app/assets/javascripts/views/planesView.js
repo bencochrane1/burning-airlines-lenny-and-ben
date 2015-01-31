@@ -4,7 +4,12 @@ App.PlanesView = Backbone.View.extend ({
 
   events: {
     'click button': 'renderPlaneCreateForm',
-    'submit form': 'createPlane'
+    'submit form': 'createPlane'    
+  },
+
+  initialize: function() {
+    console.log(this.collection);
+    this.collection.on("change", this.appendNewPlane, this);
   },
 
   renderCollection: function (data) {
@@ -27,16 +32,21 @@ App.PlanesView = Backbone.View.extend ({
     this.$el.find(".input-field").html(JST['planes/create-plane-form']());
   },
 
-  createPlane: function(event) {
+  createPlane: function(event, plane) {
     event.preventDefault();
     var name = this.$el.find('.name').val();
     var rows = this.$el.find('.rows').val();
     var aisles = this.$el.find('.aisles').val();
 
-    var planesCollection = new App.Planes();
-    var newPlane = planesCollection.create({ name: name, rows: rows, aisles: aisles})
+    var newPlane = this.collection.create({ name: name, rows: rows, aisles: aisles});
     
     console.log(newPlane);
+    console.log(newPlane.toJSON());
+
+  },
+
+  appendNewPlane: function() {
+    console.log("you're out!");
   }
 
 });
