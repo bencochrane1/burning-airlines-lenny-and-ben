@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :planes
 
+  # get '/airplanes' => 'planes#index'
   root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
