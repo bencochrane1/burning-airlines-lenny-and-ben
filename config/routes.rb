@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :planes
 
-  # get '/airplanes' => 'planes#index'
+  get '/airplanes' => 'welcome#index' # this is the page to make a new flight
   root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

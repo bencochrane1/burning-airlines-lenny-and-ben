@@ -9,6 +9,9 @@ class PlanesController < ApplicationController
     render json: @plane
   end
 
+  def makeflight
+  end
+
 private
 
   def plane_params
