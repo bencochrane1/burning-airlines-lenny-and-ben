@@ -40,24 +40,25 @@ App.FlightsView = Backbone.View.extend ({
     event.preventDefault();
     var flight_number = this.$el.find('.flight-number').val();
     var date = this.$el.find('.date').val();
-    var origin = this.$el.find('.origin').val();
-    var destination = this.$el.find('.destination').val();
-    var plane = this.$el.find('.plane').val();
+    var origin = this.$el.find('.origin-create').val();
+    var destination = this.$el.find('.destination-create').val();
+    var plane_id = this.$el.find('.plane_id').val();
 
-    var newFlight = this.collection.create({ flight_number: flight_number, date: date, origin: origin, destination: destination, plane_id: plane });
-   
+    var newFlight = this.collection.create({ flight_number: flight_number, date: date, origin: origin, destination: destination, plane_id: plane_id });
+
   },
 
   appendNewFlight: function(flight) {
     console.log(flight);
     var flightView = new App.FlightView({ model: flight })
-    this.$el.append(flightView.render().el);
+    this.$el.find("#planeTable").append(flightView.render().el);
   },
 
   searchFlights: function() {
+    console.log("are we in?")
     var searchOrigin = this.$el.find("input.origin").val();
-    var searchDestination = this.$el.find("input.destination").val();
-    
+    // var searchDestination = this.$el.find("input.destination-search").val();
+    console.log(searchOrigin);
     if (searchOrigin === "") {
       this.renderCollection(this.collection);
     } else {
