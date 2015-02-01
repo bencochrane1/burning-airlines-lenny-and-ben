@@ -77,6 +77,8 @@ div #createPlaneInputs {
 
 #planeTable a {
     color: black;
+    margin-top: 0 !important;
+    padding: 0 !important;
 }
 
 .back-to-flights a {
@@ -89,4 +91,9 @@ div #createPlaneInputs {
 
 table.container.new-container {
     height: 100px !important;
+}
+
+.scroll-planes {
+    height:500px;
+    overflow:auto;
 }

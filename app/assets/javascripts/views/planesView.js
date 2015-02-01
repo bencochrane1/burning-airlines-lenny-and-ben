@@ -72,38 +72,6 @@ App.PlanesView = Backbone.View.extend ({
 
   },
 
- //  createTable: function() {
- 
- //    var tableElem, rowElem, colElem;
-
- //    var a = this.$el.find('.rows').val();
- //    var b = this.$el.find('.aisles').val();
-   
-
- //   if (a == "" || b == "") {
- //     alert("Please enter some numeric value");
- //     break
- //   } else {
- //     tableElem = document.createElement('table');
-
- //     for (var i = 0; i < a; i++) {
- //       rowElem = document.createElement('tr');
-
- //       for (var j = 0; j < b; j++) {
- //         colElem = document.createElement('td');
- //         colElem.appendChild(document.createTextNode(j + 1)); //to print cell number
- //         rowElem.appendChild(colElem);
- //       }
-
- //       tableElem.appendChild(rowElem);
- //     }
-
- //     document.body.appendChild(tableElem);
-
-
- //   }
- // }
-
 
 
 

@@ -55,8 +55,19 @@ App.FlightsView = Backbone.View.extend ({
     var origin = this.$el.find('.origin-create').val();
     var destination = this.$el.find('.destination-create').val();
     var plane_id = this.$el.find('.plane_id').val();
-    var newFlight = this.collection.create({ flight_number: flight_number, date: date, origin: origin, destination: destination, plane_id: plane_id });
 
+    var a = this.$el.find('.flight-number').val();
+    var b = this.$el.find('.date').val();
+    var c = this.$el.find('.origin-create').val();
+    var d = this.$el.find('.destination-create').val();
+    var e = this.$el.find('.plane_id').val();
+    
+    if (a == "" || b == "" || c == "" || d == "" || e == "") {
+      alert("Make sure all of the fields are completed");
+    } else {
+      var newFlight = this.collection.create({ flight_number: flight_number, date: date, origin: origin, destination: destination, plane_id: plane_id });  
+    }
+    
   },
 
   appendNewFlight: function(flight) {
