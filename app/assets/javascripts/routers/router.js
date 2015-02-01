@@ -9,7 +9,7 @@ App.Router = Backbone.Router.extend({
   routes: {
     "planes": "airPlanes",
     "flights": "newFlights",
-    "": "showFlight"
+    "flights/:id": "showFlight"
   },
 
   airPlanes: function() {
@@ -29,9 +29,10 @@ App.Router = Backbone.Router.extend({
   },
 
   showFlight: function(id){
+    console.log(id);  
     var newFlightCollection = new App.Flights();
     newFlightCollection.fetch().then(function(){
-      var flightModel = newFlightCollection.models[3];
+      var flightModel = newFlightCollection.models[id];
       var showFlightView = new App.ShowFlightView( { model: flightModel }); 
       $("#container").html(showFlightView.render().el);
     });
@@ -43,10 +44,11 @@ App.Router = Backbone.Router.extend({
 App.router = new App.Router();
 
 
-$("a").on("click", function(event) {
+$("body").on("click", "a", function(event) {
   event.preventDefault();
 
   var href = $(this).attr("href");
+  console.log("its at the link");
   App.router.openPage(href);
 
 });

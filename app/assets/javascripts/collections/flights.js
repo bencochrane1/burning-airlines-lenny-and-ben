@@ -10,14 +10,18 @@ App.Flights = Backbone.Collection.extend({
             return flight.attributes.origin.toLowerCase().indexOf(searchOrigin.toLowerCase()) !== -1;
         });
 
-        matchedOriginFlights = [];
-          
-        matchedOriginFlights = new App.Flights(matchedFlights);
-        console.log("matched origin flights" + matchedOriginFlights);
+        savedSearch = matchedFlights;
 
-        var matchedRestOfFlights = this.filter(function(matchedOriginFlights) {
+        // matchedOriginFlights = [];
+          
+        matchedOriginFlights = new App.Flights(savedSearch);
+        console.log(matchedOriginFlights);
+
+        var matchedRestOfFlights = matchedOriginFlights.filter(function(matchedOriginFlights) {
             return matchedOriginFlights.attributes.destination.toLowerCase().indexOf(searchDestination.toLowerCase()) !== -1;
         });
+
+        // return  matchedRestOfFlights;
 
         return new App.Flights(matchedRestOfFlights);
 
