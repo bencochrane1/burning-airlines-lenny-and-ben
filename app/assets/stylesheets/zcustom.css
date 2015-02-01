@@ -1,3 +1,14 @@
 #createFlightInputs {
   padding-left: 12em;
 }
+
+#planeTable {
+margin-top: 40px;
+padding: 20px;
+background-color: #f1f4f4;
+border-radius: 10px;
+}
+
+.new-container {
+  width: 80% !important;
+}

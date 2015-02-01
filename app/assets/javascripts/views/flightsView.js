@@ -27,7 +27,7 @@ App.FlightsView = Backbone.View.extend ({
 
   render: function () {
     this.$el.html(JST['flights/app']());
-    this.renderCollection(this.collection)
+    this.renderCollection(this.collection);
     return this;
   },
 

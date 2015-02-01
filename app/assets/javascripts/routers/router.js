@@ -32,27 +32,13 @@ App.Router = Backbone.Router.extend({
     });
   },
 
-  showFlight: function(){
-    console.log("this is home");
-    // console.log("we are at show flights");
-    var flightsCollection = new App.Flights();
-    // console.log(flight);
-
-    flightsCollection.fetch().then(function() {
-      // console.log(this.collection);
-      console.log(flightsCollection.models[0].attributes);
-      var flightsView = new App.FlightsView( { collection: flightsCollection });
-      $("#container").html(flightsView.render().el);
+  showFlight: function(id){
+    var newFlightCollection = new App.Flights();
+    newFlightCollection.fetch().then(function(){
+      var flightModel = newFlightCollection.models[3];
+      var showFlightView = new App.ShowFlightView( { model: flightModel }); 
+      $("#container").html(showFlightView.render().el);
     });
-
-    // flight.fetch({
-    //   success: function() {
-    //     var flightView = new App.FlightView({model: flight});
-    //     $("#container").html(flightView.el);
-    //   }
-    // })
-    
-
   }
 });
 
