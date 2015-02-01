@@ -10,12 +10,12 @@ App.FlightsView = Backbone.View.extend ({
   },
 
   initialize: function() {
-    console.log(this.collection);
+
     this.collection.on("change", this.appendNewFlight, this);
   },
 
   renderCollection: function (data) {
-    console.log(data)
+
     this.$el.find("tbody").html("");
 
     data.each(function(flight){
@@ -49,16 +49,16 @@ App.FlightsView = Backbone.View.extend ({
   },
 
   appendNewFlight: function(flight) {
-    console.log(flight);
+
     var flightView = new App.FlightView({ model: flight })
     this.$el.find("#planeTable").append(flightView.render().el);
   },
 
   searchFlights: function() {
-    console.log("are we in?")
+
     var searchOrigin = this.$el.find("input.origin").val();
     // var searchDestination = this.$el.find("input.destination-search").val();
-    console.log(searchOrigin);
+
     if (searchOrigin === "") {
       this.renderCollection(this.collection);
     } else {
