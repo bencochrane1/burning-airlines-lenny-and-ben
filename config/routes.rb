@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
+  
+
+
+  devise_for :users
   resources :flights
+  resources :reservations
+
 
   resources :planes
    # this is the page to make a new flight
