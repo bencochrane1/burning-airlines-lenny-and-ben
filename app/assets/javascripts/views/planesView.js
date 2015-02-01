@@ -3,27 +3,32 @@ var App = App || {};
 App.PlanesView = Backbone.View.extend ({
 
   events: {
-    'click button': 'renderPlaneCreateForm',
+    'click .main-plane-create': 'renderPlaneCreateForm',
     'submit form': 'createPlane',
-    'click a': 'goNavigate'    
+    'click a': 'goNavigate',
+    'click .cancel': 'cancelButton'
   },
 
   goNavigate: function(event) {
     event.preventDefault();
-    console.log($(event.currentTarget));
+  },
+
+  cancelButton: function(event) {
+    event.preventDefault();
+    this.$el.find('#createPlaneInputs').fadeOut();
+    this.$el.find('.main-plane-create').fadeIn();
   },
 
   initialize: function() {
-    console.log(this.collection);
-    this.collection.on("change", this.appendNewPlane, this);
+    this.collection.on("add", this.appendNewPlane, this);
   },
 
   renderCollection: function (data) {
-    this.$el.find("ul").html("");
+    this.$el.find("tbody").html("");
 
     data.each(function(plane){
       var planeView = new App.PlaneView ({ model: plane });
-      this.$el.find("ul").append(planeView.render().el);
+      this.$el.find("tbody").append(planeView.render().el);
     }, this);
   },
 
@@ -36,6 +41,8 @@ App.PlanesView = Backbone.View.extend ({
 
   renderPlaneCreateForm: function() {
     this.$el.find(".input-field").html(JST['planes/create-plane-form']());
+    this.$el.find('.main-plane-create').fadeOut();
+
   },
 
   createPlane: function(event, plane) {
@@ -49,42 +56,53 @@ App.PlanesView = Backbone.View.extend ({
   },
 
   appendNewPlane: function(plane) {
-    console.log(plane);
-    var planeView = new App.PlaneView({ model: plane })
-    this.$el.append(planeView.render().el);
-    this.createTable();
+    var a = this.$el.find('.name').val();
+    var b = this.$el.find('.rows').val();
+    var c = this.$el.find('.aisles').val();
+    
+    if (a == "" || b == "" || c == "") {
+      alert("Make sure all of the fields are completed");
+      return
+    } else {
+        var planeView = new App.PlaneView({ model: plane })
+        this.$el.find("#planeTable").append(planeView.render().el);
+        this.$el.find('#createPlaneInputs').fadeOut();
+
+    }  
+
   },
 
-  createTable: function() {
+ //  createTable: function() {
  
-    var tableElem, rowElem, colElem;
+ //    var tableElem, rowElem, colElem;
 
-    var a = this.$el.find('.rows').val();
-    var b = this.$el.find('.aisles').val();
+ //    var a = this.$el.find('.rows').val();
+ //    var b = this.$el.find('.aisles').val();
    
 
-   if (a == "" || b == "") {
-     alert("Please enter some numeric value");
-   } else {
-     tableElem = document.createElement('table');
+ //   if (a == "" || b == "") {
+ //     alert("Please enter some numeric value");
+ //     break
+ //   } else {
+ //     tableElem = document.createElement('table');
 
-     for (var i = 0; i < a; i++) {
-       rowElem = document.createElement('tr');
+ //     for (var i = 0; i < a; i++) {
+ //       rowElem = document.createElement('tr');
 
-       for (var j = 0; j < b; j++) {
-         colElem = document.createElement('td');
-         colElem.appendChild(document.createTextNode(j + 1)); //to print cell number
-         rowElem.appendChild(colElem);
-       }
+ //       for (var j = 0; j < b; j++) {
+ //         colElem = document.createElement('td');
+ //         colElem.appendChild(document.createTextNode(j + 1)); //to print cell number
+ //         rowElem.appendChild(colElem);
+ //       }
 
-       tableElem.appendChild(rowElem);
-     }
+ //       tableElem.appendChild(rowElem);
+ //     }
 
-     document.body.appendChild(tableElem);
+ //     document.body.appendChild(tableElem);
 
 
-   }
- }
+ //   }
+ // }
 
 
 

@@ -2,9 +2,6 @@ var App = App || {}
 
 App.Router = Backbone.Router.extend({
 
-
-
-
   openPage: function(url) {
     this.navigate(url, { trigger: true });
   },
@@ -24,7 +21,6 @@ App.Router = Backbone.Router.extend({
   },
 
   newFlights: function() {
-    console.log("we are at new flights");
     var flightsCollection = new App.Flights();
     flightsCollection.fetch().then(function() {
       var flightsView = new App.FlightsView( { collection: flightsCollection });

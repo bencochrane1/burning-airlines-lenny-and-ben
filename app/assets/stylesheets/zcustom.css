@@ -1,14 +1,92 @@
-#createFlightInputs {
+form.row {
   padding-left: 12em;
+  border: 2px solid lightgrey;
+  border-radius: 10px;
 }
 
 #planeTable {
-margin-top: 40px;
-padding: 20px;
-background-color: #f1f4f4;
-border-radius: 10px;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f1f4f4;
+    border-radius: 10px;
 }
 
 .new-container {
   width: 80% !important;
+}
+
+#container {
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row .centre {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+
+#list-nav h1 {
+    height: 2em;
+    font-size: 1.75em;
+}
+
+th {
+    background-color: grey;
+    color: white;
+}
+
+tr:nth-child(odd) {
+    background-color: lightgrey;
+
+}
+
+th, td {
+    width: 6em;
+    padding-left: 1em !important;
+}
+
+div #createPlaneInputs {
+    background-color: #f1f4f4 !important;
+}
+
+.u-full-width {
+    margin-top: 1em;
+}
+
+.submit-flight {
+    margin-top: 1em;
+}
+
+
+.u-full-width.date {
+    height: 38px;
+    border-radius: 1px solid grey;
+}
+
+#planeTable a {
+    color: black;
+}
+
+.back-to-flights a {
+    color: black;
+}
+
+.back-to-flights a:hover {
+    color: grey;
+}
+
+table.container.new-container {
+    height: 100px !important;
 }

@@ -6,6 +6,14 @@ App.ShowFlightView = Backbone.View.extend ({
     console.log(this.collection);
   },
 
+  events: {
+    'click td': 'toggleReservation'
+  },
+
+  toggleReservation: function(event) {
+    $(event.currentTarget).style.border = "2px solid red";
+  },
+
   render: function() {
     console.log("something");
 
@@ -28,10 +36,11 @@ App.ShowFlightView = Backbone.View.extend ({
       alert("Please <e></e>nter some numeric value");
       } else {
 
-      tableElem = document.createElement('table');
+      var tableElem = document.createElement('table');
       tableElem.setAttribute("class", "u-full-width");
       tableElem.setAttribute("class", "container new-container");
       tableElem.setAttribute("id", "planeTable");
+      // document.getElementById('container').appendChild(tableElem);
 
       rowElem = document.createElement('tr');
 
@@ -64,7 +73,7 @@ App.ShowFlightView = Backbone.View.extend ({
        tableElem.appendChild(rowElem);
      }
 
-     document.body.appendChild(tableElem);
+     document.getElementById('container').appendChild(tableElem);
 
    }
     });

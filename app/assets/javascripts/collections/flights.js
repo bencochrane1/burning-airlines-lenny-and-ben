@@ -4,12 +4,49 @@ App.Flights = Backbone.Collection.extend({
   url: '/flights',
   model: App.Flight,
 
-  filterBySearch: function (searchOrigin) {
-    var matchedFlights = this.filter(function(flight){
+  filterBySearch: function (searchOrigin, searchDestination) {
 
-      return flight.attributes.origin.indexOf(searchOrigin) !== -1;
-      // return flight.attributes.destination.indexOf(searchDestination) !== -1;
-    });
-      return new App.Flights(matchedFlights);
+        var matchedFlights = this.filter(function(flight){
+            return flight.attributes.origin.toLowerCase().indexOf(searchOrigin.toLowerCase()) !== -1;
+        });
+
+        matchedOriginFlights = [];
+          
+        matchedOriginFlights = new App.Flights(matchedFlights);
+        console.log("matched origin flights" + matchedOriginFlights);
+
+        var matchedRestOfFlights = this.filter(function(matchedOriginFlights) {
+            return matchedOriginFlights.attributes.destination.toLowerCase().indexOf(searchDestination.toLowerCase()) !== -1;
+        });
+
+        return new App.Flights(matchedRestOfFlights);
+
+
   }
+
+
+
+
 });
+
+
+
+
+
+
+
+// var App = App || {}
+
+// App.Flights = Backbone.Collection.extend({
+//   url: '/flights',
+//   model: App.Flight,
+
+//   filterBySearch: function (searchOrigin) {
+//     var matchedFlights = this.filter(function(flight){
+
+//       return flight.attributes.origin.toLowerCase().indexOf(searchOrigin.toLowerCase()) !== -1;
+//       // return flight.attributes.destination.indexOf(searchDestination) !== -1;
+//     });
+//       return new App.Flights(matchedFlights);
+//   }
+// });
