@@ -12,7 +12,7 @@ App.Router = Backbone.Router.extend({
   routes: {
     "planes": "airPlanes",
     "flights": "newFlights",
-    "flights/:id": "showFlight"
+    "": "showFlight"
   },
 
   airPlanes: function() {
@@ -24,6 +24,7 @@ App.Router = Backbone.Router.extend({
   },
 
   newFlights: function() {
+    console.log("we are at new flights");
     var flightsCollection = new App.Flights();
     flightsCollection.fetch().then(function() {
       var flightsView = new App.FlightsView( { collection: flightsCollection });
@@ -32,7 +33,26 @@ App.Router = Backbone.Router.extend({
   },
 
   showFlight: function(){
-    console.log("Show Flight");
+    console.log("this is home");
+    // console.log("we are at show flights");
+    var flightsCollection = new App.Flights();
+    // console.log(flight);
+
+    flightsCollection.fetch().then(function() {
+      // console.log(this.collection);
+      console.log(flightsCollection.models[0].attributes);
+      var flightsView = new App.FlightsView( { collection: flightsCollection });
+      $("#container").html(flightsView.render().el);
+    });
+
+    // flight.fetch({
+    //   success: function() {
+    //     var flightView = new App.FlightView({model: flight});
+    //     $("#container").html(flightView.el);
+    //   }
+    // })
+    
+
   }
 });
 

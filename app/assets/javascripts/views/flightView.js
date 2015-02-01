@@ -12,7 +12,6 @@ App.FlightView = Backbone.View.extend({
   render: function() {
     var flight = this
     var plane = new App.Plane({id: this.model.get('plane_id')});
-    console.log(plane.toJSON());
 
 
     
