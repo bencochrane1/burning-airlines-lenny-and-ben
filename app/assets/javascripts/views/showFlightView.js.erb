@@ -12,6 +12,7 @@ App.ShowFlightView = Backbone.View.extend ({
 
   toggleReservation: function(event) {
     event.currentTarget.style.border = "2px solid red";
+
   },
 
   render: function() {
@@ -34,11 +35,8 @@ App.ShowFlightView = Backbone.View.extend ({
       } else {
 
       var tableElem = document.createElement('table');
-      // tableElem.setAttribute("class", "u-full-width");
       tableElem.setAttribute("class", "container new-container u-full-width");
       tableElem.setAttribute("id", "planeTable");
-      // tableElem.setAttribute("class", "scroll-planes");
-
 
       rowElem = document.createElement('tr');
 
@@ -56,13 +54,16 @@ App.ShowFlightView = Backbone.View.extend ({
 
       for (var j = 0; j < 1; j++) {
         colElem = document.createElement('td');
-        colElem.appendChild(document.createTextNode(i+1)); //to print cell number
+        colElem.appendChild(document.createTextNode(i+1));
         rowElem.appendChild(colElem);
        }
 
       for (var j = 0; j < b; j++) {
         colElem = document.createElement('td');
         imageElem = document.createElement('img');
+
+        // colElem.style.backgroundImage="url('http://s22.postimg.org/asbid4hcd/seat.png')";
+
         imageElem.src = "//s22.postimg.org/asbid4hcd/seat.png";
         colElem.appendChild(imageElem);
         rowElem.appendChild(colElem);
