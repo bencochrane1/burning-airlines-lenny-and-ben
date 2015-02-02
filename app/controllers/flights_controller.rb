@@ -9,11 +9,6 @@ class FlightsController < ApplicationController
     render json: @flight
   end
 
-  def show
-    @flight = Flight.find(params[:id])
-    render json: @flight
-  end
-
 private
 
   def flight_params

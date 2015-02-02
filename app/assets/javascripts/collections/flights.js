@@ -1,7 +1,7 @@
 var App = App || {}
 
 App.Flights = Backbone.Collection.extend({
-  url: '/flights',
+  url: '/api/flights',
   model: App.Flight,
 
   filterBySearch: function (searchOrigin, searchDestination) {

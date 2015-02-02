@@ -1,7 +1,8 @@
 class PlanesController < ApplicationController
 
   def index
-    render json: Plane.all
+    @planes = Plane.all
+    render json: @planes
   end
 
   def create

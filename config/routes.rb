@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
-  
-
 
   devise_for :users
-  resources :flights
-  resources :reservations
 
-
-  resources :planes
+  scope '/api' do
+    resources :flights
+    resources :reservations
+    resources :planes
+  end
    # this is the page to make a new flight
   root 'welcome#index'
+
+  get "*foo" => "welcome#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -3,7 +3,6 @@ var App = App || {};
 App.ShowFlightView = Backbone.View.extend ({
 
   initialize: function() {
-    //console.log(this.collection);
   },
 
   events: {
@@ -43,7 +42,7 @@ App.ShowFlightView = Backbone.View.extend ({
       rowElem = document.createElement('tr');
 
     for (var j = -1; j < b; j++) {
-      colElem = document.createElement('td');
+      colElem = document.createElement('th');
       colElem.appendChild(document.createTextNode(j+1));
       rowElem.appendChild(colElem);
     }
