@@ -32,7 +32,8 @@ App.Router = Backbone.Router.extend({
     console.log(id);  
     var newFlightCollection = new App.Flights();
     newFlightCollection.fetch().then(function(){
-      var flightModel = newFlightCollection.models[id];
+      // var flightModel = newFlightCollection.models[id];
+      var flightModel = newFlightCollection.get(id);
       var showFlightView = new App.ShowFlightView( { model: flightModel }); 
       $("#container").html(showFlightView.render().el);
     });
