@@ -13,7 +13,7 @@ App.Flights = Backbone.Collection.extend({
         savedSearch = matchedFlights;
           
         matchedOriginFlights = new App.Flights(savedSearch);
-        console.log(matchedOriginFlights);
+        //console.log(matchedOriginFlights);
 
         var matchedRestOfFlights = matchedOriginFlights.filter(function(matchedOriginFlights) {
             return matchedOriginFlights.attributes.destination.toLowerCase().indexOf(searchDestination.toLowerCase()) !== -1;

@@ -83,7 +83,7 @@ App.FlightsView = Backbone.View.extend ({
 
     var searchOrigin = this.$el.find("input.origin").val();
     var searchDestination = this.$el.find("input.destination").val();
-    console.log(searchOrigin);
+    //console.log(searchOrigin);
 
     if (searchOrigin === "" || searchDestination === "") {
       this.renderCollection(this.collection);

@@ -3,7 +3,7 @@ var App = App || {};
 App.ShowFlightView = Backbone.View.extend ({
 
   initialize: function() {
-    console.log(this.collection);
+    //console.log(this.collection);
   },
 
   events: {
@@ -27,8 +27,8 @@ App.ShowFlightView = Backbone.View.extend ({
         // var planeRows = newPlanes.models[plane_id].attributes.rows;
         var planeRows = newPlanes.get(plane_id).attributes.rows;
         var planeAisles = newPlanes.get(plane_id).attributes.aisles;
-        console.log(planeRows);
-        console.log(planeAisles);
+        //console.log(planeRows);
+        //console.log(planeAisles);
 
         var a = planeRows;
         var b = planeAisles;
@@ -66,7 +66,7 @@ App.ShowFlightView = Backbone.View.extend ({
 
         // colElem.style.backgroundImage="url('http://s22.postimg.org/asbid4hcd/seat.png')";
 
-        imageElem.src = "//s22.postimg.org/asbid4hcd/seat.png";
+        imageElem.src = "http://s22.postimg.org/asbid4hcd/seat.png";
         colElem.appendChild(imageElem);
         rowElem.appendChild(colElem);
        }
