@@ -69,6 +69,13 @@ div #createPlaneInputs {
     margin-top: 1em;
 }
 
+table * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
 .u-full-width.date {
     height: 38px;
