@@ -23,8 +23,10 @@ App.ShowFlightView = Backbone.View.extend ({
 
     var newPlanes = new App.Planes();
     newPlanes.fetch().then(function(){
-        var planeRows = newPlanes.models[plane_id].attributes.rows;
-        var planeAisles = newPlanes.models[plane_id].attributes.aisles;
+
+        // var planeRows = newPlanes.models[plane_id].attributes.rows;
+        var planeRows = newPlanes.get(plane_id).attributes.rows;
+        var planeAisles = newPlanes.get(plane_id).attributes.aisles;
         console.log(planeRows);
         console.log(planeAisles);
 
