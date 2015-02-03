@@ -48,9 +48,7 @@ App.router = new App.Router();
 
 $("body").on("click", "a", function(event) {
   event.preventDefault();
-
   var href = $(this).attr("href");
-  //console.log("its at the link");
   App.router.openPage(href);
 
 });
